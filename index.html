@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dom-front-testing redirect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      padding: 2rem;
+    }
+    input {
+      font-size: 1rem;
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 1rem;
+    }
+    button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+    .hint {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h2>Enter Dev Server URL</h2>
+  <input
+    type="url"
+    id="urlInput"
+    placeholder="e.g. http://192.168.0.123:5173"
+    required
+  />
+  <button onclick="redirect()">Go</button>
+  <div class="hint">
+    Works best in local browsers. Telegram Mini Apps <strong>require HTTPS</strong>.
+  </div>
+
+  <script>
+    function redirect() {
+      const url = document.getElementById('urlInput').value.trim();
+
+      if (!/^http:\/\/192\.168\./.test(url)) {
+        alert('Please enter a valid local network URL like http://192.168.x.x:5173');
+        return;
+      }
+
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
