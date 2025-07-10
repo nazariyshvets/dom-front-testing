@@ -50,7 +50,8 @@
     function redirect() {
       const url = document.getElementById('urlInput').value.trim();
       const params = window.location.search;
-      window.location.href = `${url}${params}`;
+      const hash = window.location.hash;
+      window.location.href = `${url}${params}${hash}`;
     }
   </script>
 </body>
