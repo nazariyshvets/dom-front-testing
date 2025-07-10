@@ -49,12 +49,6 @@
   <script>
     function redirect() {
       const url = document.getElementById('urlInput').value.trim();
-
-      if (!/^(?:http|https):\/\/192\.168\./.test(url)) {
-        alert('Please enter a valid local network URL like http://192.168.x.x:5173');
-        return;
-      }
-
       window.location.href = url;
     }
   </script>
